@@ -110,7 +110,7 @@ const vieworderedcountdetails = async() => {
                 {$match:{status:"PLACED"}},
                 {
                     $group: {
-                      _id: { date: { $substr: [ "$createdOn", 0, 10 ] } },
+                      _id: { date: { $substr: [ "$createdOn", 0, 10 ] },productname: "$productname" },
                      count: { $sum: 1 }
                     }
                 }
